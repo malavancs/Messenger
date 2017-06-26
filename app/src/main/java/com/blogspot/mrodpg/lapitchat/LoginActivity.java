@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         mProgressDialogue = new ProgressDialog(this);
+        mProgressDialogue.setTitle("Please wait...");
 
        login_btn.setOnClickListener(new View.OnClickListener() {
            @Override

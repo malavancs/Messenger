@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         mToolbar  =(Toolbar)findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("LapitChat");
+        getSupportActionBar().setTitle("Chat on");
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -71,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (item.getItemId()==R.id.main_setting)
         {
+
             startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
-            finish();
+
         }
 
 

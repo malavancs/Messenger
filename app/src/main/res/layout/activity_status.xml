@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.blogspot.mrodpg.lapitchat.StatusActivity">
+
+    <include
+        layout="@layout/app_bar_layout"
+        android:layout_width="match_parent"
+        android:id="@+id/status_app_bar"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:id="@+id/status_status"
+    android:layout_height="wrap_content">
+
+
+</android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/status_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="#ffffff"
+        android:layout_marginTop="118dp"
+        android:text="Update"
+        android:layout_below="@+id/status_app_bar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp" />
+
+    <EditText
+        android:id="@+id/status_status1"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="47dp"
+        android:ems="10"
+        android:hint="Your Status"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/status_app_bar"
+        android:layout_alignEnd="@+id/status_update"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
