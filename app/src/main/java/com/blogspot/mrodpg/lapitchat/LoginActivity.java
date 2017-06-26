@@ -55,6 +55,8 @@ public class LoginActivity extends AppCompatActivity {
            public void onClick(View v) {
 
 
+               mProgressDialogue.show();
+
                try {
                    String email = login_email.getEditText().getText().toString();
                    String password = login_password.getEditText().getText().toString();
@@ -93,14 +95,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
-                        finish();
+
+                        mProgressDialogue.dismiss();
+                    Intent intent  = new Intent(getApplicationContext(),MainActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
                 }
                 else
                 {
 
 
                     Toast.makeText(getApplicationContext(),"Check the form and try again",Toast.LENGTH_LONG).show();
+                    mProgressDialogue.hide();
                 }
             }
         });

@@ -1,6 +1,8 @@
 package com.blogspot.mrodpg.lapitchat;
 
 import android.content.Intent;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private Toolbar mToolbar;
+    private ViewPager mViewPager;
+    private SectionPager mSectionPager;
+    private TabLayout mTablayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        mViewPager = (ViewPager)findViewById(R.id.main_tabPager);
+        mSectionPager = new SectionPager(getSupportFragmentManager());
+        mViewPager.setAdapter(mSectionPager);
 
 
+
+        mTablayout = (TabLayout)findViewById(R.id.main_tabs);
+        mTablayout.setupWithViewPager(mViewPager);
     }
 
 
@@ -57,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
           startActivity(new Intent(getApplicationContext(),StartActivity.class));
             finish();
 
+        }
+        if (item.getItemId()==R.id.main_setting)
+        {
+            startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+            finish();
         }
 
 

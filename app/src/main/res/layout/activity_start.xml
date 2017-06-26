@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Welcome to LapitChat "
+        android:text="@string/welcome_to_lapitchat"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="274dp" />
@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="95dp"
-        android:text=" NEED A NEW ACCOUNT? " />
+        android:text="@string/need_a_new_account" />
 
     <Button
         android:id="@+id/start_login"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
         android:layout_marginTop="33dp"
-        android:text="LOGIN ?"
+        android:text="@string/logina"
         android:background="@color/colorAccent"
         android:layout_alignStart="@+id/start_create_acc"
         android:layout_alignEnd="@+id/start_create_acc" />
