@@ -11,6 +11,10 @@ import android.view.MenuItem;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Chat on");
 
         mAuth = FirebaseAuth.getInstance();
-
+        DatabaseReference mDatabasereference = FirebaseDatabase.getInstance().getReference().child("Users").child(getUid());
+        mDatabasereference.child("lastseen").setValue("Online");
         mViewPager = (ViewPager)findViewById(R.id.main_tabPager);
         mSectionPager = new SectionPager(getSupportFragmentManager());
         mViewPager.setAdapter(mSectionPager);
@@ -75,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
 
         }
+        if(item.getItemId()==R.id.main_all_users)
+        {
+            startActivity(new Intent(getApplicationContext(),UsersActivity.class));
+        }
 
 
 
@@ -91,4 +100,36 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        DatabaseReference mDatabasereference = FirebaseDatabase.getInstance().getReference().child("Users").child(getUid());
+        mDatabasereference.child("lastseen").setValue(getlastscene());
+
+    }
+    public String getlastscene()
+    {
+        String date = new Date().toString();
+        String[] data = date.split("\\s+");
+        date = data[3];
+        return data[1].concat(" " + data[2] + " ").concat(date);
+
+        //Sat Aug 05 10:24:00 GMT+05:30 2017
+    }
+    public String getUid()
+    {
+        FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+        String uid="";
+        try
+        {
+            uid = mFirebaseAuth.getCurrentUser().getUid();
+
+        }
+        catch (NullPointerException e)
+        {
+            //who cares
+        }
+
+        return uid;
+    }
 }

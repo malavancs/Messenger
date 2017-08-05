@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DE000000">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/profile_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+
+        android:src="@drawable/default_avatar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:id="@+id/profile_name"
+        android:layout_marginTop="20dp"
+        android:textSize="25dp"
+        />
+
+    <TextView
+        android:id="@+id/profile_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Status"
+
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="18dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:ems="10"
+        android:id="@+id/profile_uid"
+        android:maxLines="1"
+        android:textColor="#DE000000"
+        android:hint="Paste his/her id here"
+        android:background="@drawable/rounded_edittext"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:id="@+id/profile_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+
+        android:layout_gravity="center"
+        android:background="@color/colorAccent"
+        android:textColor="#ffffff"
+        android:padding="5dp"
+        android:text=" Add friend " />
+
+
+</LinearLayout>

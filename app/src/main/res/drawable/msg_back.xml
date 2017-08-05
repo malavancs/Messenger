@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background Color -->
+    <solid android:color="#ffffff" />
+
+    <!-- Border Color -->
+    <stroke android:width="3dp" android:color="@color/common_google_signin_btn_text_light_default" />
+
+    <!-- Round Corners -->
+    <corners android:radius="50dp" />
+
+</shape>

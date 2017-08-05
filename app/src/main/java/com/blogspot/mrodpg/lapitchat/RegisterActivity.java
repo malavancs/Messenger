@@ -99,6 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     userkey.put("status", "Hey there,I'm using Whatsapp");
                                     userkey.put("name", displayname);
                                     userkey.put("thumb_image","empty");
+                                    userkey.put("privacy","Everyone");
                                     mDatabase.child("Users").child(uid).setValue(userkey);
 
 

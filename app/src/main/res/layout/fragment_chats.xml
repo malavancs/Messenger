@@ -5,9 +5,13 @@
     tools:context="com.blogspot.mrodpg.lapitchat.ChatsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Welcome to chats" />
+        android:id="@+id/chats_recyclerview"
+
+        >
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

@@ -21,7 +21,7 @@ public class StatusActivity extends AppCompatActivity {
 
 
 
-    private TextInputLayout mStatus;
+    private EditText mStatus;
     private Button mUpdate;
     private Toolbar mToolbar;
     private FirebaseAuth firebaseAuth;
@@ -39,7 +39,7 @@ public class StatusActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        mStatus = (TextInputLayout) findViewById(R.id.status_status);
+        mStatus = (EditText) findViewById(R.id.status_status1);
         mUpdate = (Button)findViewById(R.id.status_update);
 
 
@@ -51,7 +51,7 @@ public class StatusActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String status = mStatus.getEditText().getText().toString();
+                String status = mStatus.getText().toString();
                 if (!status.isEmpty())
                 {
                     databaseReference.child("status").setValue(status).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -60,6 +60,7 @@ public class StatusActivity extends AppCompatActivity {
                             if(task.isSuccessful())
                             {
                                 startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+                                Toast.makeText(StatusActivity.this, "Status updated", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
                             else

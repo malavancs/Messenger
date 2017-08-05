@@ -13,13 +13,6 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="8dp" />
-<android.support.design.widget.TextInputLayout
-    android:layout_width="match_parent"
-    android:id="@+id/status_status"
-    android:layout_height="wrap_content">
-
-
-</android.support.design.widget.TextInputLayout>
 
 
     <Button
