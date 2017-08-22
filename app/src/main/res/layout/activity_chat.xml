@@ -33,34 +33,33 @@
         android:id="@+id/chat_recyclerview"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="120dp"
-        android:layout_below="@+id/appBarLayout">
+        android:layout_below="@+id/appBarLayout"
+        android:layout_above="@+id/chat_msg_send">
 
     </android.support.v7.widget.RecyclerView>
 
     <EditText
-        android:id="@+id/chat_msg"
+        android:id="@+id/chat_msg_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="49dp"
+        android:layout_marginBottom="17dp"
         android:layout_marginStart="21dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Type here......" />
+        android:hint="Type here......"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/chat_msg_now"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/chat_msg"
+        android:layout_alignTop="@+id/chat_msg_send"
         android:layout_marginStart="25dp"
-        android:layout_toEndOf="@id/chat_msg"
+        android:layout_toEndOf="@id/chat_msg_send"
         android:text="Send"
-        android:layout_alignBottom="@id/chat_msg" />
+        android:layout_alignBottom="@id/chat_msg_send" />
 
 
 </RelativeLayout>

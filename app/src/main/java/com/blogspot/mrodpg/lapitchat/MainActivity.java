@@ -1,5 +1,7 @@
 package com.blogspot.mrodpg.lapitchat;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -9,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -23,10 +26,34 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private SectionPager mSectionPager;
     private TabLayout mTablayout;
+
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
+
+
+
+
+
         setContentView(R.layout.activity_main);
+
+        MobileAds.initialize(this, "ca-app-pub-2455279011703306~6844025785");
+
+
 
 
         mToolbar  =(Toolbar)findViewById(R.id.main_page_toolbar);
@@ -51,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
     public void onStart()
     {
         super.onStart();
+
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
 
@@ -105,8 +134,27 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
         DatabaseReference mDatabasereference = FirebaseDatabase.getInstance().getReference().child("Users").child(getUid());
         mDatabasereference.child("lastseen").setValue(getlastscene());
+        //startService(new Intent(getBaseContext(), MsgReceivedService.class));
+        finish();
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DatabaseReference mDatabasereference = FirebaseDatabase.getInstance().getReference().child("Users").child(getUid());
+        mDatabasereference.child("lastseen").setValue("Online");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        DatabaseReference mDatabasereference = FirebaseDatabase.getInstance().getReference().child("Users").child(getUid());
+        mDatabasereference.child("lastseen").setValue(getlastscene());
+        //startService(new Intent(getBaseContext(), MsgReceivedService.class));
+        //finish();
+    }
+
     public String getlastscene()
     {
         String date = new Date().toString();

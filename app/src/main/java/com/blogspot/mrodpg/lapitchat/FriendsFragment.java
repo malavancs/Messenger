@@ -1,8 +1,6 @@
 package com.blogspot.mrodpg.lapitchat;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -20,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.NetworkPolicy;
@@ -33,6 +31,8 @@ public class FriendsFragment extends Fragment {
 
     private  RecyclerView mRecyclerView;
     private DatabaseReference mDatabase;
+    private Query query;
+    //private String thumbs;
     public FriendsFragment()
     {
 
@@ -46,7 +46,7 @@ public class FriendsFragment extends Fragment {
                 FriendLists.class,
                 R.layout.users_single_friends,
                 UsersViewHolder.class,
-                mDatabase
+                query
 
 
         ) {
@@ -69,23 +69,33 @@ public class FriendsFragment extends Fragment {
 
                         View mView = viewHolder.getView();
 
-                        final String name = dataSnapshot.child("name").getValue().toString();
+                       final  String name = dataSnapshot.child("name").getValue().toString();
                         String image = dataSnapshot.child("image").getValue().toString();
                         final String status = dataSnapshot.child("status").getValue().toString();
-                        final String thumb = dataSnapshot.child("thumb_image").getValue().toString();
+                      final String thumb = dataSnapshot.child("thumb_image").getValue().toString();
+                       // final String thumb;
                        String mPrivacyOption = dataSnapshot.child("privacy").getValue().toString();
 
 
                         viewHolder.mView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                             //   final String[] thumb = new String[1];
+
+
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("UserChat").child(getUid()).child(uid);
+                              // DatabaseReference d = FirebaseDatabase.getInstance().getReference().child("Users").child(getUid());
 
                                 databaseReference.child("name").setValue(name);
+                                databaseReference.child("thumb").setValue(thumb);
+                                databaseReference.child("uid").setValue(uid);
                                 databaseReference.child("lastmessage").setValue(status);
                                 Intent intent = new Intent(getActivity(),ChatActivity.class);
                                 intent.putExtra("name",name);
                                 intent.putExtra("uid",uid);
+                                //intent.putExtra("thumb_for_chat", thumbs);
+                               intent.putExtra("thumb",thumb);
+
                                 startActivity(intent);
 
 
@@ -95,9 +105,9 @@ public class FriendsFragment extends Fragment {
 
 
 
-                        final CircleImageView mCirculerImage =  (CircleImageView)mView.findViewById(R.id.friends_single_image);
+                        final CircleImageView mCirculerImage =  (CircleImageView)mView.findViewById(R.id.request_image);
                         TextView mStatus = (TextView)mView.findViewById(R.id.friends_single_status);
-                        TextView mName = (TextView)mView.findViewById(R.id.friends_single_name);
+                        TextView mName = (TextView)mView.findViewById(R.id.request_name);
 
                         mName.setText(name);
                         mStatus.setText(status);
@@ -160,7 +170,8 @@ public class FriendsFragment extends Fragment {
 
         mRecyclerView = (RecyclerView)view.findViewById(R.id.friends_recyclerview);
         mDatabase = FirebaseDatabase.getInstance().getReference().child("FriendLists").child(getUid());
-        mDatabase.keepSynced(true);
+        query = mDatabase.orderByChild("uid");
+        query.keepSynced(true);
         //mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
@@ -184,12 +195,12 @@ public class FriendsFragment extends Fragment {
         }
        public void setName(String name)
        {
-           TextView mName = (TextView)mView.findViewById(R.id.friends_single_name);
+           TextView mName = (TextView)mView.findViewById(R.id.request_name);
            mName.setText(name);
        }
        public void setUid(String uid)
        {
-           TextView mName = (TextView)mView.findViewById(R.id.friends_single_name);
+           TextView mName = (TextView)mView.findViewById(R.id.request_name);
            mName.setText(uid);
        }
        public View getView()

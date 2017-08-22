@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/welcome_to_lapitchat"
+        android:text="Welcome to LetsChat"
         android:textSize="24sp"
         tools:layout_editor_absoluteX="163dp"
         tools:layout_editor_absoluteY="274dp" />
@@ -39,6 +39,14 @@
         android:background="@color/colorAccent"
         android:layout_alignStart="@+id/start_create_acc"
         android:layout_alignEnd="@+id/start_create_acc" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_above="@+id/textView"
+        android:layout_alignEnd="@+id/start_login" />
 
 
 </RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/request_image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/default_avatar" />
+
+        <TextView
+            android:id="@+id/request_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_alignTop="@+id/request_image"
+            android:layout_toEndOf="@+id/request_image" />
+
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@+id/request_image"
+          android:layout_alignParentEnd="true">
+
+          <Button
+              android:id="@+id/request_decline"
+              android:layout_width="wrap_content"
+              android:layout_height="25dp"
+              android:layout_alignParentEnd="true"
+              android:layout_alignParentTop="true"
+              android:layout_marginEnd="44dp"
+              android:background="#d83f3c"
+
+
+              android:text="DECLINE"
+              android:textColor="#ffffff"
+              android:textSize="10sp" />
+
+          <Button
+              android:id="@+id/request_accept"
+              android:layout_width="wrap_content"
+              android:layout_height="25dp"
+
+              android:layout_marginEnd="30dp"
+              android:background="@color/colorAccent"
+              android:text="ACCEPT"
+              android:textColor="#ffffff"
+              android:textSize="10sp"
+              android:layout_alignParentTop="true"
+              android:layout_toStartOf="@+id/request_decline" />
+
+
+      </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

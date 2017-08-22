@@ -18,7 +18,7 @@
         android:layout_alignTop="@+id/users_single_image"
         android:layout_marginStart="12dp"
         android:layout_toEndOf="@+id/users_single_image"
-        android:text="Display name"
+        android:text="User name"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp" />
 
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/users_single_image"
         android:layout_alignStart="@+id/users_single_name"
-        android:text="Hey there , I'm using whatsapp"
+        android:text="Hey there , I'm using ChatOn"
         android:textAlignment="viewStart"
         android:textColor="@color/common_google_signin_btn_text_light_focused"
         android:textSize="12sp" />

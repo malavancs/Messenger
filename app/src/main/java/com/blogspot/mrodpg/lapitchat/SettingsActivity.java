@@ -61,7 +61,7 @@ public class SettingsActivity extends AppCompatActivity  {
     private static final int GALLERY_PICK =1;
     private StorageReference mStorageRef;
     private ProgressDialog mProgress;
-    private FloatingActionButton mShare;
+   // private FloatingActionButton mShare;
     //private Spinner mSpinner;
     private String mPrivacyOption = "";
     private AlertDialog myDialog;
@@ -135,15 +135,16 @@ public class SettingsActivity extends AppCompatActivity  {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
 
-        mShare = (FloatingActionButton) findViewById(R.id.setting_share);
+     //   mShare = (FloatingActionButton) findViewById(R.id.setting_share);
 
         uid = mFirebaseAuth.getCurrentUser().getUid();
-        mShare.setOnClickListener(new View.OnClickListener() {
+       /* mShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 shareText("Hey !!! add me in ChatBuddy", uid);
             }
         });
+        */
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
         mDatabase.keepSynced(true);
         mStorageRef = FirebaseStorage.getInstance().getReference().child("profile_image").child(uid + ".jpg");
@@ -162,13 +163,13 @@ public class SettingsActivity extends AppCompatActivity  {
                 //     mSpinner.setSelection(getIndex(mSpinner,mPrivacyOption));
                 switch (mPrivacyOption)
                 {
-                    case "EVERYBODY":               mSettingPrivacy.setImageResource(R.drawable.everybody);
+                    case "EVERYBODY":               mSettingPrivacy.setImageResource(R.drawable.buttons);
                                                     break;
-                    case "ONLYME":                  mSettingPrivacy.setImageResource(R.drawable.onlyme);
+                    case "ONLYME":                  mSettingPrivacy.setImageResource(R.drawable.buttons);
                                                     break;
-                    case "FRIENDS":                 mSettingPrivacy.setImageResource(R.drawable.friends);
+                    case "FRIENDS":                 mSettingPrivacy.setImageResource(R.drawable.buttons);
                                                     break;
-                    default:                        mSettingPrivacy.setImageResource(R.drawable.everybody);
+                    default:                        mSettingPrivacy.setImageResource(R.drawable.buttons);
                                                     break;
 
                 }

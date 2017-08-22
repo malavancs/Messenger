@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog mProgressDialogue;
-    private TextView already;
+    private TextView already,request_forget;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        request_forget = (TextView)findViewById(R.id.request_forget);
+
+
 
         already = (TextView)findViewById(R.id.textViewSignup);
         login_btn  = (Button)findViewById(R.id.login_signin);
@@ -80,6 +83,25 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
+            }
+        });
+        request_forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = login_email.getEditText().getText().toString();
+                if(!email.equals(""))
+                {
+                    FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful())
+                            {
+                                Toast.makeText(LoginActivity.this, "Check your mail box for reset password", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                }
             }
         });
 

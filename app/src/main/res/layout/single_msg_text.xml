@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ads">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/single_seen"
+            />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/single_image"
+            android:src="@drawable/default_avatar"
+            android:layout_margin="10dp"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/single_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/ads"
+        android:text="Name"
+        android:textColor="@color/colorAccent"
+        android:textSize="11sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/single_time"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/single_name"
+        android:layout_alignBottom="@+id/single_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:text="12:00:00"
+        android:textSize="11sp" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/single_name"
+        android:layout_alignStart="@+id/ads"
+        android:id="@+id/relativeLayout5">
+
+        <TextView
+            android:id="@+id/single_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:text="How you doing.........How you doing.........How you doing.........How you doing.........How you doing.........How you doing.........How you doing........."
+            android:textAlignment="viewStart"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

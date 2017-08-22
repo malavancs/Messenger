@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="#14171a"
     tools:context="com.blogspot.mrodpg.lapitchat.SettingsActivity">
 
 
@@ -28,20 +28,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="Display name"
+        android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="24sp" />
 
-        <TextView
+    <TextView
 
         android:id="@+id/settings_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/settings_display_name"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="27dp"
-        android:text="Hi there, I'm using Whatsup"
+        android:text="Hi there, I'm using ChatOn"
         android:textColor="#ffffff"
-            />
+        android:layout_below="@+id/settings_display_name"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/settings_image_btn"
@@ -71,19 +70,9 @@
      />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/setting_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:fabSize="mini"
-        app:srcCompat="@android:drawable/ic_menu_share"
-        android:layout_alignBottom="@+id/settings_image"
-        android:layout_toEndOf="@+id/settings_image" />
-
-    <android.support.design.widget.FloatingActionButton
         android:id="@+id/setting_privacy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignBottom="@+id/settings_image"
         android:layout_toStartOf="@+id/settings_image"
         android:clickable="true"

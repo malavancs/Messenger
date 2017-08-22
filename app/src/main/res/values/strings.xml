@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LapitChat</string>
+    <string name="app_name">LetsChat</string>
     <string name="log_out">Log out</string>
     <string name="all_users">All Users</string>
     <string name="setting">Setting</string>
@@ -22,4 +22,8 @@
     <string name="add_friends">ADD FRIENDS</string>
     <string name="add_friend">ADD FRIEND</string>
     <string name="user_id">USER ID</string>
+
+    <string name="title_activity_friend_profile">FriendProfile</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

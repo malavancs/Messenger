@@ -55,7 +55,7 @@ class SectionPager extends FragmentPagerAdapter{
         switch (position)
         {
             case 0:
-                return "REQUESTS";
+                return "REQUEST";
             case 1:
                 return "CHATS";
             case 2:

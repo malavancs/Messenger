@@ -16,7 +16,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Loading"
+        android:text="Name"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:id="@+id/profile_name"
@@ -35,18 +35,6 @@
         android:textColor="#ffffff"
         android:textSize="18dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center"
-        android:ems="10"
-        android:id="@+id/profile_uid"
-        android:maxLines="1"
-        android:textColor="#DE000000"
-        android:hint="Paste his/her id here"
-        android:background="@drawable/rounded_edittext"
-        android:layout_marginTop="20dp"
-        />
     <Button
         android:id="@+id/profile_request"
         android:layout_width="wrap_content"
